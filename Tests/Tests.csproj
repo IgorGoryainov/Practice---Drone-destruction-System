@@ -12,4 +12,9 @@
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
   </ItemGroup>
 
+  <!-- Include source files under test (compiled with Unity stubs) -->
+  <ItemGroup>
+    <Compile Include="../Assets/Scripts/Navigation/Distance.cs" />
+  </ItemGroup>
+
 </Project>

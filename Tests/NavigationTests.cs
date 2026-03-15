@@ -111,11 +111,7 @@ public class NavigationSystemTests
 {
     private Transform MakeTransform(float x, float y, float z) => new Transform(x, y, z);
 
-    private Distance.NavigationSystem BuildNavSystem(
-        Transform drone,
-        int[] sectors = null,
-        float[] rlsPositions = null
-    )
+    private Distance.NavigationSystem BuildNavSystem(Transform drone)
     {
         // Place 4 active RLS sensors at corners of a 200m square around origin
         var rls1 = new Distance.RLS_Active(MakeTransform(-100, 0, -100), drone, -90, 0, 0f, 0f);
