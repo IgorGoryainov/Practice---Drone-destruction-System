@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+jobs:
+  test:
+    name: Run NUnit Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.x'
+          cache: true
+          cache-dependency-path: Tests/Tests.csproj
+
+      - name: Restore dependencies
+        run: dotnet restore Tests/Tests.csproj
+
+      - name: Run tests
+        run: dotnet test Tests/Tests.csproj --verbosity normal
