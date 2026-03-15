@@ -21,6 +21,8 @@
 # Visual Studio
 .vs/
 *.csproj
+# Allow test project files
+!Tests/*.csproj
 *.unityproj
 *.sln
 *.suo
