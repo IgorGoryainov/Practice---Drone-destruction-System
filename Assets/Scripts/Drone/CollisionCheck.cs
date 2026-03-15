@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CollisionCheck : MonoBehaviour
 {
-    void OnCollisionEnter()
+    void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Hit Something");
+        Debug.Log($"Hit {collision.gameObject.name}");
     }
 }

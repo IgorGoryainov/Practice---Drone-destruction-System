@@ -1,22 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MoveScript : MonoBehaviour
 {
-    public Transform myTransform;
-    public Transform emtyObjectTargetPos;
+    public Transform emptyObjectTargetPos;
+
+    private static readonly Vector3 Origin = Vector3.zero;
+    private const float LerpStep = 0.0001f;
 
     void Start()
     {
-        myTransform.position = new Vector3(0, 50, 500);
+        transform.position = new Vector3(0, 50, 500);
     }
 
     void FixedUpdate()
     {
-        emtyObjectTargetPos.position = new Vector3(0, 0, 0);
-        myTransform.position =
-            Vector3
-                .Lerp(myTransform.position, emtyObjectTargetPos.position, 0.0001f);
+        emptyObjectTargetPos.position = Origin;
+        transform.position = Vector3.Lerp(transform.position, emptyObjectTargetPos.position, LerpStep);
     }
 }
